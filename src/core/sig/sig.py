@@ -103,7 +103,12 @@ def semantic_integrity_guarantee(
         }
 
     # --- Embedding & Cosine Distance ---
-    model = embedding_model or SentenceTransformer(embedding_model_name)
+    if embedding_model is not None:
+        model = embedding_model
+    else:
+        if embedding_model_name not in _CACHED_SENTENCE_TRANSFORMERS:
+            _CACHED_SENTENCE_TRANSFORMERS[embedding_model_name] = SentenceTransformer(embedding_model_name)
+        model = _CACHED_SENTENCE_TRANSFORMERS[embedding_model_name]
     emb1 = model.encode([' '.join(tokens1)])[0]
     emb2 = model.encode([' '.join(tokens2)])[0]
     cosine_dist = float(cosine_distances([emb1], [emb2])[0][0])
