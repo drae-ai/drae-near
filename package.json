@@ -1,0 +1,74 @@
+{
+  "name": "drae-near",
+  "version": "0.1.0",
+  "description": "Privacy-preserving semantic alignment platform combining AI, blockchain, and TEE technology",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:blockchain\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python -m uvicorn main:app --reload",
+    "dev:blockchain": "cd blockchain && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend && npm run build:blockchain",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && echo 'Python backend built'",
+    "build:blockchain": "cd blockchain && npm run build",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest",
+    "test:integration": "jest --config jest.integration.config.js",
+    "test:e2e": "playwright test",
+    "test:python": "pytest",
+    "lint": "eslint src/ frontend/src/ backend/src/",
+    "lint:fix": "eslint src/ frontend/src/ backend/src/ --fix",
+    "lint:python": "black . && flake8 . && mypy .",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md}\"",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "near:deploy": "cd blockchain && npm run deploy:testnet",
+    "ai:train": "cd ai && python -m training.train",
+    "ai:inference": "cd ai && python -m inference.run",
+    "core:run": "python -m src.core.main",
+    "api:run": "python -m src.api.main"
+  },
+  "keywords": [
+    "ai",
+    "blockchain",
+    "privacy",
+    "semantic-alignment",
+    "tee",
+    "near",
+    "ten-protocol",
+    "cryptography",
+    "nlp",
+    "python"
+  ],
+  "author": "Drae Team",
+  "license": "MIT",
+  "dependencies": {
+    "near-api-js": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "^8.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rDRAE/drae-near.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rDRAE/drae-near/issues"
+  },
+  "homepage": "https://drae.ai"
+}
