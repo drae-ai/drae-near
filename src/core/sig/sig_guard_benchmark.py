@@ -93,7 +93,9 @@ class SIGGuardBenchmark:
 
             # Limit to first 1000 for performance
             pairs = pairs[:1000]
-            print(f"✅ Loaded {len(pairs)} PAWS pairs")
+            # Limit to first paws_limit for performance
+            pairs = pairs[:self.paws_limit]
+            print(f"✅ Loaded {len(pairs)} PAWS pairs (limit: {self.paws_limit})")
             return pairs
 
         except Exception as e:
