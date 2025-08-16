@@ -67,7 +67,7 @@ def main():
         }
 
         # Run benchmark with this DELTA
-        benchmark = SIGGuardBenchmark(delta=delta)
+        benchmark = SIGGuardBenchmark()
         success = benchmark.run_full_benchmark()
         if not success:
             print("[WARN] Benchmark failed for this DELTA.")
