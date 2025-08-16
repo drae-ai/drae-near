@@ -6,6 +6,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 from scipy.spatial.distance import jensenshannon
 from typing import Optional, Dict
 
+# Module-level constants and caches
+_DEFAULT_SPACY_NLP = spacy.blank("en")
+_CACHED_SENTENCE_TRANSFORMERS = {}
+
 def semantic_integrity_guarantee(
     text1: str,
     text2: str,
