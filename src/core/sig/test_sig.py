@@ -5,7 +5,10 @@ import spacy
 from sentence_transformers import SentenceTransformer
 from typing import Dict, List, Tuple
 import json
-from .sig import semantic_integrity_guarantee
+try:
+    from .sig import semantic_integrity_guarantee
+except ImportError:
+    from sig import semantic_integrity_guarantee
 import math
 
 
