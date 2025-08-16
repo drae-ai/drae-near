@@ -84,7 +84,7 @@ def semantic_integrity_guarantee(
         - For production use with large texts, consider preprocessing and chunking strategies
     """
     # --- Preprocessing ---
-    nlp = spacy_nlp or spacy.blank("en")
+    nlp = spacy_nlp if spacy_nlp is not None else _DEFAULT_SPACY_NLP
     def tokenize(text):
         doc = nlp(text.lower())
         return [token.text for token in doc if not token.is_space and not token.is_punct]
