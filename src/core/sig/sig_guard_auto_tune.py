@@ -66,7 +66,9 @@ def main():
         }
 
         # Run benchmark with this DELTA
-        benchmark = SIGGuardBenchmark()
+        # Reset benchmark state before running with new DELTA
+        if hasattr(benchmark, "reset"):
+            benchmark.reset()
         success = benchmark.run_full_benchmark()
         if not success:
             print("[WARN] Benchmark failed for this DELTA.")
