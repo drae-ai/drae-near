@@ -1,94 +1,18 @@
-# Core AI and ML dependencies
-torch>=2.0.0
-transformers>=4.30.0
+# Core dependencies (actually used)
 numpy>=1.24.0
-pandas>=2.0.0
+spacy>=3.6.0
+sentence-transformers>=2.2.0
 scikit-learn>=1.3.0
 scipy>=1.10.0
+datasets>=2.14.0
+torch>=2.0.0
+transformers>=4.30.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
 
-# Semantic processing and NLP
-spacy>=3.6.0
-nltk>=3.8
-textblob>=0.17.0
-gensim>=4.3.0
-word2vec>=0.11.0
-
-# Deep learning and neural networks
-tensorflow>=2.13.0
-keras>=2.13.0
-pytorch-lightning>=2.0.0
-optuna>=3.2.0
-wandb>=0.15.0
-
-# Privacy and cryptography
-cryptography>=41.0.0
-pycryptodome>=3.18.0
-homomorphic-python>=0.1.0
-secure-multiparty-computation>=0.1.0
-
-# TEE and confidential computing
-gramine>=1.4.0
-sgx-psw>=2.17.0
-sgx-dcap>=1.15.0
-
-# Web and API (Backend Services)
-fastapi>=0.100.0
-uvicorn>=0.23.0
-pydantic>=2.0.0
-requests>=2.31.0
-aiohttp>=3.8.0
-starlette>=0.27.0
-python-multipart>=0.0.6
-
-# Database and storage
-sqlalchemy>=2.0.0
-alembic>=1.11.0
-redis>=4.6.0
-pymongo>=4.4.0
-asyncpg>=0.28.0
-aioredis>=2.0.0
-
-# Testing and development
+# Development tools
 pytest>=7.4.0
-pytest-asyncio>=0.21.0
-pytest-cov>=4.1.0
-pytest-mock>=3.11.0
 black>=23.0.0
 flake8>=6.0.0
 mypy>=1.5.0
-isort>=5.12.0
-
-# Utilities
-python-dotenv>=1.0.0
-click>=8.1.0
-rich>=13.0.0
-tqdm>=4.65.0
-loguru>=0.7.0
-pydantic-settings>=2.0.0
-
-# Jupyter and research
-jupyter>=1.0.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-plotly>=5.15.0
-
-# Performance and optimization
-numba>=0.57.0
-cython>=3.0.0
-joblib>=1.3.0
-
-# Async and concurrency
-asyncio-mqtt>=0.13.0
-celery>=5.3.0
-redis>=4.6.0
-
-# Monitoring and observability
-prometheus-client>=0.17.0
-structlog>=23.1.0
-sentry-sdk>=1.32.0
-
-# Security and authentication
-python-jose>=3.3.0
-passlib>=1.7.4
-bcrypt>=4.0.0
-python-multipart>=0.0.6
