@@ -72,7 +72,7 @@ def semantic_integrity_guarantee(
         - **Graceful Degradation**: The function attempts to handle edge cases gracefully, but may fail
         - The function handles empty or whitespace-only texts by returning NaN for distance metrics and 0 for similarity.
           For invalid parameters or model loading failures, exceptions are raised as documented above. If system resources are insufficient (e.g., for very large texts), the function may raise MemoryError or RuntimeError.
-
+        - **Graceful Degradation**: The function handles edge cases such as empty or whitespace-only texts by returning NaN for distance metrics and 0 for similarity. For invalid parameters or model loading failures, exceptions are raised as documented above. If system resources are insufficient (e.g., for very large texts), the function may raise MemoryError or RuntimeError.
     Examples:
         >>> # Valid inputs
         >>> result = semantic_integrity_guarantee("Hello world", "Hi there")
