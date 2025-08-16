@@ -50,7 +50,6 @@ def semantic_integrity_guarantee(
         ValueError: If ngram_range is invalid (e.g., negative values, start > end).
         ValueError: If smoothing is negative.
         RuntimeError: If embedding model fails to load or encode texts.
-        MemoryError: If texts are extremely long and cause memory issues during processing.
 
     Notes:
         - Cosine distance: 0 means identical, 1 means maximally different.
