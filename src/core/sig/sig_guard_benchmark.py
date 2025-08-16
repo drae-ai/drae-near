@@ -468,7 +468,7 @@ class SIGGuardBenchmark:
             elif isinstance(obj, list):
                 return [convert_numpy(item) for item in obj]
             elif isinstance(obj, tuple):
-                return str(obj)  # Convert tuples to strings
+                return [convert_numpy(item) for item in obj]  # Convert tuples to lists
             else:
                 return obj
 
