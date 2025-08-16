@@ -87,6 +87,26 @@ def semantic_integrity_guarantee(
         - Memory usage scales with text length and vocabulary size
         - For production use with large texts, consider preprocessing and chunking strategies
     """
+    # --- Input Validation ---
+    if not isinstance(text1, str):
+        raise TypeError("text1 must be a string, got {}".format(type(text1).__name__))
+    if not isinstance(text2, str):
+        raise TypeError("text2 must be a string, got {}".format(type(text2).__name__))
+
+    if not isinstance(ngram_range, tuple) or len(ngram_range) != 2:
+        raise ValueError("ngram_range must be a tuple of length 2, got {}".format(ngram_range))
+    if not isinstance(ngram_range[0], int) or not isinstance(ngram_range[1], int):
+        raise ValueError("ngram_range values must be integers, got {}".format(ngram_range))
+    if ngram_range[0] <= 0 or ngram_range[1] <= 0:
+        raise ValueError("ngram_range values must be positive, got {}".format(ngram_range))
+    if ngram_range[0] > ngram_range[1]:
+        raise ValueError("ngram_range start must be <= end, got {}".format(ngram_range))
+
+    if not isinstance(smoothing, (int, float)):
+        raise ValueError("smoothing must be a number, got {}".format(type(smoothing).__name__))
+    if smoothing < 0:
+        raise ValueError("smoothing must be non-negative, got {}".format(smoothing))
+
     # --- Preprocessing ---
     nlp = spacy_nlp if spacy_nlp is not None else _DEFAULT_SPACY_NLP
     def tokenize(text):
