@@ -59,7 +59,7 @@ def main():
         sig_guard.DELTA['jaccard_similarity'] = jaccard
 
         # Run benchmark with this DELTA
-        benchmark = SIGGuardBenchmark()  # Remove the delta=delta parameter
+        benchmark = SIGGuardBenchmark()
         success = benchmark.run_full_benchmark()
         if not success:
             print("[WARN] Benchmark failed for this DELTA.")
