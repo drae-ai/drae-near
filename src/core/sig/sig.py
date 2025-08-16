@@ -41,11 +41,47 @@ def semantic_integrity_guarantee(
             'jaccard_similarity': float
         }
 
+    Raises:
+        TypeError: If text1 or text2 are not strings.
+        ValueError: If ngram_range is invalid (e.g., negative values, start > end).
+        ValueError: If smoothing is negative.
+        RuntimeError: If embedding model fails to load or encode texts.
+        MemoryError: If texts are extremely long and cause memory issues during processing.
+
     Notes:
         - Cosine distance: 0 means identical, 1 means maximally different.
         - JS divergence: 0 means identical, 1 means maximally different (bounded).
         - Jaccard similarity: 1 means identical, 0 means no overlap.
         - If either text is empty, returns NaN for distances/divergence, 0 for similarity.
+
+    Input Validation and Error Handling:
+        - **String Inputs**: Both text1 and text2 must be strings. Non-string inputs will raise TypeError.
+        - **Empty/Whitespace Texts**: Empty strings or texts containing only whitespace/punctuation are handled gracefully
+          and return NaN for distance metrics and 0 for similarity.
+        - **Text Length Limits**: Very long texts (>1MB) may cause memory issues. Consider chunking extremely long texts.
+        - **Parameter Validation**:
+          * ngram_range must be a tuple of (start, end) where start <= end and both are positive integers
+          * smoothing must be non-negative
+        - **Model Loading**: If embedding_model is None, the function attempts to load the specified model.
+          Model loading failures will raise RuntimeError.
+        - **Memory Management**: For large texts, the function may consume significant memory during embedding
+          generation. Monitor memory usage when processing documents >100KB.
+        - **Graceful Degradation**: The function attempts to handle edge cases gracefully, but may fail
+          if system resources are insufficient for the input size.
+
+    Examples:
+        >>> # Valid inputs
+        >>> result = semantic_integrity_guarantee("Hello world", "Hi there")
+        >>> # Empty text handling
+        >>> result = semantic_integrity_guarantee("", "Hello")  # Returns NaN for distances
+        >>> # Very long text (may cause memory issues)
+        >>> long_text = "A" * 1000000  # 1MB of text
+        >>> result = semantic_integrity_guarantee(long_text, long_text)  # May raise MemoryError
+
+    Performance Considerations:
+        - Processing time scales with text length due to embedding generation
+        - Memory usage scales with text length and vocabulary size
+        - For production use with large texts, consider preprocessing and chunking strategies
     """
     # --- Preprocessing ---
     nlp = spacy_nlp or spacy.blank("en")
