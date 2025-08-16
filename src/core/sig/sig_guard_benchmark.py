@@ -470,7 +470,6 @@ class SIGGuardBenchmark:
                 return [convert_numpy(item) for item in obj]  # Convert tuples to lists
             else:
                 return obj
-
         results_json = convert_numpy(self.results)
 
         with open(filename, 'w') as f:
