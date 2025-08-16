@@ -166,6 +166,5 @@ When adding new datasets or metrics:
 3. Add comprehensive documentation
 4. Test with fallback data for robustness
 
-## License
 
-This benchmark is part of the SIG (Semantic Integrity Guarantee) project.
+This benchmark is part of the SIG (Semantic Integrity Guarantee) component of the drae project.

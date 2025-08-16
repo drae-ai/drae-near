@@ -161,6 +161,3 @@ The benchmark generates:
 - scikit-learn: Distance metrics and vectorization
 - scipy: Statistical functions
 
-## License
-
-MIT License
