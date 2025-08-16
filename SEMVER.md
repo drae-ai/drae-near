@@ -160,7 +160,7 @@ git commit -m "fix: resolve memory leak in data processor"
 git commit -m "docs: update API documentation"
 
 # Breaking change (increments MAJOR)
-git commit -m "feat!: remove deprecated login" endpoint
+git commit -m "feat!: remove deprecated login endpoint"
 
 # Bug fix commit
 git commit -m "chore: update dependencies"
