@@ -21,20 +21,6 @@ class SemanticIntegrityBenchmark(unittest.TestCase):
     def setUp(self):
         """Initialize test resources."""
         self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-    # Instance-level variable to store benchmark results for each test instance
-
-
-    def setUp(self):
-        """Initialize test resources."""
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-
-
-
-
-
-    def setUp(self):
-        """Initialize test resources."""
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
         self.nlp = spacy.blank("en")
         # Instance-level variable to store benchmark results for each test instance
         self.benchmark_results = []
