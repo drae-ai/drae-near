@@ -57,7 +57,6 @@ def main():
         sig_guard.DELTA['cosine_distance'] = cosine
         sig_guard.DELTA['js_divergence'] = js
         sig_guard.DELTA['jaccard_similarity'] = jaccard
-        # Run benchmark
         # Create a DELTA dict for this iteration
         delta = {
             'cosine_distance': cosine,
