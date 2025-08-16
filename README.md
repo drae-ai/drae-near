@@ -144,8 +144,7 @@ This project is licensed under the [LICENSE](LICENSE) file.
 ## Contact
 
 - **Website**: [drae.ai](https://drae.ai)
-- **Discord**: [Join our community](https://discord.gg/drae)
-- **Twitter**: [@draeprotocol](https://twitter.com/draeprotocol)
+- **Twitter**: [@draelabs](https://twitter.com/draelabs)
 
 ---
 
