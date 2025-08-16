@@ -9,7 +9,10 @@ import json
 import time
 from copy import deepcopy
 from .sig_guard_benchmark import SIGGuardBenchmark
-from . import sig_guard
+try:
+    from . import sig_guard
+except ImportError:
+    import sig_guard
 
 # Search space for DELTA values
 COSINE_RANGE = [0.05, 0.10, 0.15, 0.20]
