@@ -18,7 +18,6 @@ from sklearn.metrics import roc_auc_score, precision_recall_curve, auc
 from sklearn.metrics import classification_report, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
-from .sig import semantic_integrity_guarantee
 try:
     from .sig import semantic_integrity_guarantee
     from .sig_guard import passes_sig_guard, DELTA
