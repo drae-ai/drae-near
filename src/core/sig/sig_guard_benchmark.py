@@ -19,7 +19,12 @@ from sklearn.metrics import classification_report, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 from .sig import semantic_integrity_guarantee
-from .sig_guard import passes_sig_guard, DELTA
+try:
+    from .sig import semantic_integrity_guarantee
+    from .sig_guard import passes_sig_guard, DELTA
+except (ImportError, ModuleNotFoundError):
+    from sig import semantic_integrity_guarantee
+    from sig_guard import passes_sig_guard, DELTA
 
 class SIGGuardBenchmark:
     """Comprehensive benchmark for semantic integrity guard."""
