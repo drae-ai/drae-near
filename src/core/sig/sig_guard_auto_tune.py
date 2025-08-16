@@ -59,7 +59,15 @@ def main():
         sig_guard.DELTA['jaccard_similarity'] = jaccard
 
         # Run benchmark with this DELTA
-        benchmark = SIGGuardBenchmark()
+        # Create a new DELTA dictionary for this run
+        delta = {
+            'cosine_distance': cosine,
+            'js_divergence': js,
+            'jaccard_similarity': jaccard
+        }
+
+        # Run benchmark with this DELTA
+        benchmark = SIGGuardBenchmark(delta=delta)
         success = benchmark.run_full_benchmark()
         if not success:
             print("[WARN] Benchmark failed for this DELTA.")
